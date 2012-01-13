@@ -1,0 +1,4 @@
+
+node blog.js &
+node app.js &
+DEBUG=distributor node distributor.js

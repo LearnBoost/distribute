@@ -1,0 +1,16 @@
+{
+    "name": "distribute"
+  , "description": "Load balancer / proxy / router organized around Express/Connect-like middleware."
+  , "version": "0.1.0"
+  , "tags": ["connect", "middleware", "proxy", "load balancer", "balance", "vhost", "virtual"]
+  , "main": "./distribute"
+  , "dependencies": {
+        "debug": "0.1.0"
+      , "http-proxy": "0.8.0"
+    }
+  , "devDependencies": {
+        "mocha": "*"
+      , "expect.js": "*"
+      , "superagent": "*"
+    }
+}
