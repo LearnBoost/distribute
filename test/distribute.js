@@ -226,7 +226,9 @@ describe('distribute', function () {
           .set('Host', 'b.localhost')
           .end(function (res) {
             expect(res.status).to.be(500);
-            expect(res.text).to.contain('Test');
+            if ('development' == process.env.NODE_ENV) {
+              expect(res.text).to.contain('Test');
+            }
             --total || finish();
           });
       }
