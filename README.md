@@ -1,4 +1,3 @@
-
 # Distribute
 
 **Distribute** is a middleware-based API to expressively perform request
@@ -10,7 +9,7 @@ routing / load balancing in Node.JS.
 
 ```js
 var http = require('http').createServer().listen(3000)
-  , srv = require('balance')(http);
+  , srv = require('distribute')(http);
 
 srv.use(function (req, res, next) {
   if (req.headers.host == 'blog.mydomain.com') {
