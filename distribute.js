@@ -230,6 +230,8 @@ Distributor.prototype.defaultHTTPError = function (err, req, res, next) {
 
 /**
  * Default ws handler middleware
+ *
+ * @api upgrade
  */
 
 Distributor.prototype.defaultWS = function (err, req, socket, head) {
@@ -239,6 +241,8 @@ Distributor.prototype.defaultWS = function (err, req, socket, head) {
 
 /**
  * Default ws error handler middleware
+ *
+ * @api upgrade
  */
 
 Distributor.prototype.defaultWSError = function (err, req, socket, head) {
