@@ -234,7 +234,7 @@ Distributor.prototype.defaultHTTPError = function (err, req, res, next) {
  * @api upgrade
  */
 
-Distributor.prototype.defaultWS = function (err, req, socket, head) {
+Distributor.prototype.defaultWS = function (req, socket, next) {
   debug('executing default ws middleware');
   socket.end();
 };
@@ -245,7 +245,7 @@ Distributor.prototype.defaultWS = function (err, req, socket, head) {
  * @api upgrade
  */
 
-Distributor.prototype.defaultWSError = function (err, req, socket, head) {
+Distributor.prototype.defaultWSError = function (err, req, socket, next) {
   debug('executing default ws error middleware');
   socket.end();
 };
