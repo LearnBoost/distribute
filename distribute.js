@@ -20,7 +20,7 @@ module.exports = exports = Distributor;
  * @api public
  */
 
-exports.version = '0.1.0';
+exports.version = '0.1.1';
 
 /**
  * Distributor factory/constructor.
