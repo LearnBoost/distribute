@@ -182,14 +182,15 @@ Distributor.prototype.onUpgrade = function (req, socket, head) {
  */
 
 Distributor.prototype.run = function (stack, params, onNext) {
-  var l = params.length;
+  var l = params.length
+    , self = this
 
   function step (i) {
     params[l] = function next () {
-      if (arguments.length) return onNext.apply(null, arguments);
+      if (arguments.length) return onNext.apply(self, arguments);
       step(++i);
     };
-    stack[i].apply(null, params);
+    stack[i].apply(self, params);
   }
 
   step(0);
