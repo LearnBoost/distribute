@@ -167,7 +167,7 @@ Distributor.prototype.onUpgrade = function (req, socket, head) {
       debug('proxying ws request');
       socket.removeListener('close', onClose);
       var proxy = { port: port, host: host || 'localhost', buffer: req.buf };
-      self.proxy.proxyWebSocketRequest(req, res, req.head, proxy);
+      self.proxy.proxyWebSocketRequest(req, socket, req.head, proxy);
     }
   });
 };
