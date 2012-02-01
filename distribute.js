@@ -187,10 +187,17 @@ Distributor.prototype.run = function (stack, params, onNext) {
     , self = this
 
   function step (i) {
+    // set up `next` as last parameter
     params[l] = function next () {
       if (arguments.length) return onNext.apply(self, arguments);
       step(++i);
     };
+
+    // add `.next` to all objects in the parameters except last one
+    for (var ii = 0; ii < l; ii++) {
+      params[ii].next = params[l];
+    }
+
     stack[i].apply(self, params);
   }
 
