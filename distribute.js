@@ -115,6 +115,7 @@ Distributor.prototype.onRequest = function (req, res) {
   var self = this;
 
   // set up patches
+  res.req = req;
   req.res = res;
   req.buf = proxy.buffer(req);
 
