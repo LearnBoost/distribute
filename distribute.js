@@ -60,6 +60,7 @@ Distributor.prototype.__proto__ = EventEmitter.prototype;
 
 Distributor.prototype.__defineGetter__('ws', function () {
   this.useWS = true;
+  return this;
 });
 
 /**
