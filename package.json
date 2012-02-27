@@ -1,7 +1,7 @@
 {
     "name": "distribute"
   , "description": "Load balancer / proxy / router organized around Express/Connect-like middleware."
-  , "version": "0.1.3"
+  , "version": "0.1.4"
   , "tags": ["connect", "middleware", "proxy", "load balancer", "balance", "vhost", "virtual"]
   , "main": "./distribute"
   , "dependencies": {
