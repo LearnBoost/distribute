@@ -189,10 +189,19 @@ Distributor.prototype.run = function (stack, params, onNext) {
     , self = this
 
   function step (i) {
+    var called = false;
+
     // set up `next` as last parameter
     params[l] = function next () {
-      if (arguments.length) return onNext.apply(self, arguments);
-      step(++i);
+      if (called) {
+        var req = params[0];
+        throw new Error('`next` called more than once in\n' + stack[i]
+          + ' for ' + req.url + ' (' + JSON.stringify(req.headers) + ')');
+      } else {
+        called = true;
+        if (arguments.length) return onNext.apply(self, arguments);
+        step(++i);
+      }
     };
 
     // add `.next` to all objects in the parameters except last one
