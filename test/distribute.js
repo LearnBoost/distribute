@@ -247,7 +247,9 @@ describe('distribute', function () {
 
       req.on('end', function () {
         expect(data).to.be('ABC');
-        done();
+        res.end();
+        srv1.close();
+        master.on('close', done).close();
       });
     }).listen(4001, onListen);
 
