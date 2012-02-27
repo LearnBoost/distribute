@@ -289,4 +289,30 @@ describe('distribute', function () {
     }
   });
 
+  it('should not break on double next', function (done) {
+    var httpServer = http.createServer()
+      , srv = distribute(httpServer)
+
+    srv.use(function (req, res, next) {
+      next();
+      setTimeout(function () {
+        expect(next).to.throwException(/more than once.*tobi/);
+      }, 10);
+    });
+
+    srv.use(function (req, res, next) {
+      setTimeout(function () {
+        res.writeHead(200);
+        res.end('Hello World');
+      }, 50);
+    });
+
+    httpServer.listen(4000, function () {
+      request.get('http://localhost:4000/tobi').end(function (res) {
+        expect(res.text).to.be('Hello World');
+        httpServer.on('close', done).close();
+      });
+    });
+  });
+
 });
