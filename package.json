@@ -6,7 +6,7 @@
   , "main": "./distribute"
   , "dependencies": {
         "debug": "0.1.0"
-      , "http-proxy": "0.8.0"
+      , "http-proxy": "0.8.2"
     }
   , "devDependencies": {
         "mocha": "*"
